@@ -1,0 +1,606 @@
+{
+ "properties": {
+  "displayName": "ES-Foundational-Initiative",
+  "policyType": "Custom",
+  "description": "Default ES Foundation Initiative to secure the Azure Infrastructure Platform",
+  "metadata": {
+   "category": "ES-Foundations",
+   "version": "1",
+   "createdBy": "0a813f72-8251-4027-b1e5-b7dcfb3e25cd",
+   "createdOn": "2021-10-14T08:24:52.1623606Z",
+   "updatedBy": "0a813f72-8251-4027-b1e5-b7dcfb3e25cd",
+   "updatedOn": "2021-10-14T10:35:04.7286319Z",
+   "parameterScopes": {
+    "nsgRegion": "/providers/Microsoft.Management/managementGroups/ab242a2a-3dad-4162-be6d-32ab8e7940f9",
+    "networkWatcherRG": "/subscriptions/a965348c-2b92-48fe-94a4-a43d0240f6dd",
+    "logAnalytics": "/subscriptions/a965348c-2b92-48fe-94a4-a43d0240f6dd/resourcegroups/es-default-rg",
+    "listOfResourceTypesNotAllowed": "/providers/Microsoft.Management/managementGroups/ab242a2a-3dad-4162-be6d-32ab8e7940f9",
+    "listOfAllowedSKUs": "/providers/Microsoft.Management/managementGroups/ab242a2a-3dad-4162-be6d-32ab8e7940f9",
+    "ddosPlan": "/providers/Microsoft.Management/managementGroups/ab242a2a-3dad-4162-be6d-32ab8e7940f9",
+    "rgName": "/subscriptions/a965348c-2b92-48fe-94a4-a43d0240f6dd",
+    "listOfAllowedLocations": "/providers/Microsoft.Management/managementGroups/ab242a2a-3dad-4162-be6d-32ab8e7940f9",
+    "workspaceRegion": "/providers/Microsoft.Management/managementGroups/ab242a2a-3dad-4162-be6d-32ab8e7940f9",
+    "resourceGroupLocation": "/providers/Microsoft.Management/managementGroups/ab242a2a-3dad-4162-be6d-32ab8e7940f9",
+    "workspaceResourceId": "/subscriptions/a965348c-2b92-48fe-94a4-a43d0240f6dd/resourcegroups/es-default-rg"
+   }
+  },
+  "parameters": {
+   "ES-Initiative-Parameter": {
+    "type": "string",
+    "metadata": {
+     "displayName": "ES-Param"
+    },
+    "defaultValue": "TBD"
+   }
+  },
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "Storage account keys should not be expired_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/044985bb-afe1-42cd-8a36-9d5d42424537",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Web Application Firewall (WAF) should be enabled for Azure Front Door Service service_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/055aa869-bc98-4af8-bafc-23f1ab6ffe2c",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "There should be more than one owner assigned to your subscription_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/09024ccc-0c5f-475e-9457-b7c0d9ed487b",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Audit resource location matches resource group location_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Key vaults should have purge protection enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0b60c0b2-2dc2-4e1c-b5c9-abbed971de53",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy a flow log resource with target network security group_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0db34a60-64f4-4bf6-bd44-f95c16cf34b9",
+    "parameters": {
+     "nsgRegion": {
+      "value": "europe"
+     },
+     "storageId": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     },
+     "networkWatcherRG": {
+      "value": "es-default-rg"
+     },
+     "networkWatcherName": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Azure Defender for Key Vault should be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0e6763cc-5078-4e64-889d-ff4d9a839047",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Custom subscription owner roles should not exist_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/10ee2ea2-fb4d-45b8-a7e9-a2e770044cd9",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Web Application Firewall (WAF) should use the specified mode for Application Gateway_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/12430be1-6cc8-4527-a9a8-e3d38f250096",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Require a tag and its value on resources_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+    "parameters": {
+     "tagName": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     },
+     "tagValue": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Key vaults should have soft delete enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender for Key Vaults to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1f725891-01c0-420a-9059-4fa46cb770b7",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "VPN gateways should use only Azure Active Directory (Azure AD) authentication for point-to-site user_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/21a6bc25-125e-4d13-b82d-2e19b7208ab7",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Activity logs to stream to specified Log Analytics workspace_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2465583e-4e78-4c15-b6be-a36cbc7c8b0f",
+    "parameters": {
+     "logAnalytics": {
+      "value": "/subscriptions/a965348c-2b92-48fe-94a4-a43d0240f6dd/resourcegroups/es-default-rg/providers/microsoft.operationalinsights/workspaces/es-default-law"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Storage accounts should restrict network access using virtual network rules_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a1a9cdf-e04d-429a-8416-3bfb72a1b26f",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Network Watcher flow logs should have traffic analytics enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2f080164-9f4d-497e-9db6-416dc9f7b48a",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Azure Defender for Storage should be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/308fbb08-4ab8-4e67-9b29-592e93fb94fa",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Storage accounts should restrict network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Gateway subnets should not be configured with a network security group_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/35f9c03a-cc27-418e-9c0c-539ff999d010",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "An activity log alert should exist for specific Security operations_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/3b980d31-7904-4bb7-8575-5665739a8052",
+    "parameters": {
+     "operationName": {
+      "value": "Microsoft.Security/securitySolutions/delete"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Azure Monitor should collect activity logs from all regions_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/41388f1c-2db0-4c25-95b2-35d7f5ccbfa9",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Web Application Firewall (WAF) should use the specified mode for Azure Front Door Service_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/425bea59-a659-4cbb-8d31-34499bd030b8",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Auto provisioning of the Log Analytics agent should be enabled on your subscription_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/475aae12-b88a-4572-8b36-9b712b2b3a17",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Azure Defender for servers should be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/4da35fc9-c9e7-4960-aec9-797fe7d9051d",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "A maximum of 3 owners should be designated for your subscription_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/4f11b553-d42e-4e3a-89be-32ca364cad4c",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Subscriptions should have a contact email address for security issues_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "[Preview]: Storage account public access should be disallowed_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/4fa4b6c0-31ca-4c0d-b10d-24b96f62a751",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "[Preview]: Azure Key Vault should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/55615ac9-af46-4a59-874e-391cc3dfb490",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Web Application Firewall (WAF) should be enabled for Application Gateway_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/564feb30-bf6a-4854-b4bb-0d2d2d1e6c66",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Not allowed resource types_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6c112d4e-5bc7-47ae-a041-ea2d9dccd749",
+    "parameters": {
+     "listOfResourceTypesNotAllowed": {
+      "value": [
+       "84codes.cloudamqp/listcommunicationpreference",
+       "84codes.cloudamqp/operations",
+       "84codes.cloudamqp/servers",
+       "84codes.cloudamqp/updatecommunicationpreference"
+      ]
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Log Analytics workspaces should block log ingestion and querying from public networks_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6c53d030-cc64-46f0-906d-2bc061cd1334",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Security Center's auto provisioning of the Log Analytics agent on your subscriptions with def_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6df2fee6-a9ed-4fef-bced-e13be1b25f1c",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Email notification for high severity alerts should be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6e2593d9-add6-4083-9c9b-4b7d2188c899",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure diagnostic settings for storage accounts to Log Analytics workspace_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6f8f98a4-f108-47cb-8e98-91a0d85cd474",
+    "parameters": {
+     "logAnalytics": {
+      "value": "/subscriptions/a965348c-2b92-48fe-94a4-a43d0240f6dd/resourcegroups/es-default-rg/providers/microsoft.operationalinsights/workspaces/es-default-law"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Storage accounts should be limited by allowed SKUs_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+    "parameters": {
+     "listOfAllowedSKUs": {
+      "value": [
+       "standard_grs",
+       "standard_gzrs",
+       "standard_lrs",
+       "standard_ragrs",
+       "standard_ragzrs",
+       "standard_zrs"
+      ]
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Public IP addresses should have resource logs enabled for Azure DDoS Protection Standard_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/752154a7-1e0f-45c6-a880-ac75a7e4f648",
+    "parameters": {
+     "profileName": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     },
+     "logAnalytics": {
+      "value": "/subscriptions/a965348c-2b92-48fe-94a4-a43d0240f6dd/resourcegroups/es-default-rg/providers/microsoft.operationalinsights/workspaces/es-default-law"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Azure subscriptions should have a log profile for Activity Log_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7796937f-307b-4598-941c-67d3a05ebfe7",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Require a tag and its value on resource groups_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8ce3da23-7156-49e4-b145-24f95f9dcb46",
+    "parameters": {
+     "tagName": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     },
+     "tagValue": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender for servers to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8e86a5b6-b9bd-49d1-8e21-4bb8a0862222",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Security Center's auto provisioning of the Log Analytics agent on your subscriptions with cus_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8e7da0a5-0a0e-4bbc-bfc0-7773c018b616",
+    "parameters": {
+     "logAnalytics": {
+      "value": "/subscriptions/a965348c-2b92-48fe-94a4-a43d0240f6dd/resourcegroups/es-default-rg/providers/microsoft.operationalinsights/workspaces/es-default-law"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "MFA should be enabled accounts with write permissions on your subscription_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9297c21d-2ed6-4474-b48f-163f75654ce3",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Virtual networks should be protected by Azure DDoS Protection Standard_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d",
+    "parameters": {
+     "ddosPlan": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy - Configure diagnostic settings for Azure Key Vault to Log Analytics workspace_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/951af2fa-529b-416e-ab6e-066fd85ac459",
+    "parameters": {
+     "logAnalytics": {
+      "value": "/subscriptions/a965348c-2b92-48fe-94a4-a43d0240f6dd/resourcegroups/es-default-rg/providers/microsoft.operationalinsights/workspaces/es-default-law"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Security Center standard pricing tier should be selected_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a1181c5f-672a-477a-979a-7d58aa086233",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Audit usage of custom RBAC rules_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a451c1ef-c6ca-483d-87ed-f49761e3ffb5",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "MFA should be enabled on accounts with owner permissions on your subscription_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/aa633080-8b72-40c4-a2d7-d00c03e80bed",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Azure Security Center on your subscription_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ac076320-ddcf-4066-b451-6154267e8ad2",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Activity log should be retained for at least one year_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b02aacc0-b073-424e-8298-42b22829ee0a",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Network Watcher should be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b6e2945c-0b7b-40f5-9233-7a5323b5cdc6",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure Azure Defender for Resource Manager to be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b7021b2b-08fd-4dc0-9de7-3c6ece09faf9",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "An activity log alert should exist for specific Administrative operations_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b954148f-4c11-4c38-8221-be76711e194a",
+    "parameters": {
+     "operationName": {
+      "value": "Microsoft.Sql/servers/firewallRules/delete"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Azure Defender for DNS should be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bdc59948-5574-49b3-bb91-76b7c986428d",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy Diagnostic Settings for Key Vault to Log Analytics workspace_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bef3f64c-5290-43b7-85b0-9b254eef4c47",
+    "parameters": {
+     "logAnalytics": {
+      "value": "/subscriptions/a965348c-2b92-48fe-94a4-a43d0240f6dd/resourcegroups/es-default-rg/providers/microsoft.operationalinsights/workspaces/es-default-law"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Flow logs should be configured for every network security group_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c251913d-7d24-4958-af87-478ed3b9ba41",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Azure Defender for Resource Manager should be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c3d20c29-b36d-48fe-808b-99a87530ad99",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy Diagnostic Settings for Network Security Groups_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c9c29499-c1d1-4195-99bd-2ec9e3a9dc89",
+    "parameters": {
+     "storagePrefix": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     },
+     "rgName": {
+      "value": "es-default-rg"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Allowed virtual machine size SKUs_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cccc23c7-8427-4f53-ad12-b6a63eb452b3",
+    "parameters": {
+     "listOfAllowedSKUs": {
+      "value": [
+       "basic_a0",
+       "basic_a1",
+       "basic_a2",
+       "basic_a3",
+       "basic_a4"
+      ]
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Log Analytics Workspaces should block non-Azure Active Directory based ingestion._1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e15effd4-2278-4c65-a0da-4d6f6d1890e2",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Azure VPN gateways should not use 'basic' SKU_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e345b6c3-24bd-4c93-9bbb-7e5e49a17b78",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "MFA should be enabled on accounts with read permissions on your subscription_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e3576e28-8b17-4677-84c3-db2990658d64",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Allowed locations_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+    "parameters": {
+     "listOfAllowedLocations": {
+      "value": [
+       "europe"
+      ]
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Allowed locations for resource groups_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+    "parameters": {
+     "listOfAllowedLocations": {
+      "value": [
+       "europe"
+      ]
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Configure network security groups to enable traffic analytics_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e920df7f-9a64-4066-9b58-52684c02a091",
+    "parameters": {
+     "nsgRegion": {
+      "value": "europe"
+     },
+     "storageId": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     },
+     "workspaceResourceId": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     },
+     "workspaceRegion": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     },
+     "workspaceId": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     },
+     "networkWatcherRG": {
+      "value": "es-default-rg"
+     },
+     "networkWatcherName": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Virtual networks should use specified virtual network gateway_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f1776c76-f58c-4245-a8d0-2b207198dc8b",
+    "parameters": {
+     "virtualNetworkGatewayId": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "[Preview]: All Internet traffic should be routed via your deployed Azure Firewall_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/fc5e4038-4584-4632-8c85-c0448d374b2c",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy export to Log Analytics workspace for Azure Security Center data_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ffb6f416-7bd2-4488-8828-56585fef2be9",
+    "parameters": {
+     "resourceGroupName": {
+      "value": "[parameters('ES-Initiative-Parameter')]"
+     },
+     "resourceGroupLocation": {
+      "value": "europe"
+     },
+     "workspaceResourceId": {
+      "value": "/subscriptions/a965348c-2b92-48fe-94a4-a43d0240f6dd/resourcegroups/es-default-rg/providers/microsoft.operationalinsights/workspaces/es-default-law"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Key Vault keys should have an expiration date_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Keys should have the specified maximum validity period_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/49a22571-d204-4c91-a7b6-09b1a586fbc9",
+    "parameters": {
+     "maximumValidityInDays": {
+      "value": 180
+     }
+    },
+    "groupNames": []
+   }
+  ],
+  "policyDefinitionGroups": []
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/ab242a2a-3dad-4162-be6d-32ab8e7940f9/providers/Microsoft.Authorization/policySetDefinitions/ddb98abfd30a46738e264a98",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "ddb98abfd30a46738e264a98"
+}
